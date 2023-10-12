@@ -27,17 +27,13 @@ The demographic data is provided in the `data.csv` file, based on data from [Wor
 - Required Python packages listed in `requirements.txt`
 
 ## Getting Started
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/IngAamira/WorldDemographics.git
-2. **Install the required dependencies:**
-    ```bash
-    pip install -r requirements.txt
-3. **Run the application:**
-    ```bash
-    python main.py
-# Screenshots
+```sh
+git clone https://github.com/IngAamira/WorldDemographics.git
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
+python3 main.py
+```
 
 ## Pie Chart
 

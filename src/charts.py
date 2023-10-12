@@ -67,6 +67,7 @@ def generate_bar_chart(labels, values, country):
     customize_bar_chart(ax)
     plt.savefig('./img/bar_'+ country + '.png')
     plt.close()
+    print('Generated bar in path: "./img"')
 
 def generate_pie_chart(labels, values, continent, top_n=5):
     """
@@ -89,3 +90,4 @@ def generate_pie_chart(labels, values, continent, top_n=5):
     plt.title(f"Top {top_n} Population Percentage for {continent}", size=14, weight='bold')
     plt.savefig(f'./img/pie_{continent}.png')
     plt.close()
+    print('Generated pie in path: "./img"')

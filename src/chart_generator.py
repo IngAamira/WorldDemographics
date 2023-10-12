@@ -18,7 +18,7 @@ def generate_pie_chart_for_continent(data):
         return
     countries = [item['Country'] for item in continent_data]
     percentages = [item['World Population Percentage'] for item in continent_data]
-    generate_pie_chart(countries, percentages)
+    generate_pie_chart(countries, percentages, continent)
 
 def generate_bar_chart_for_country(data):
     """

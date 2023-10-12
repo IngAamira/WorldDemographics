@@ -30,7 +30,7 @@ def customize_bar_chart(ax):
     for tick in vals:
         ax.axhline(y=tick, linestyle='dashed', alpha=0.4, color='#c3c9c5', zorder=1)
 
-def generate_bar_chart(labels, values, Country):
+def generate_bar_chart(labels, values, country):
     """
     Generate a bar chart showing the population of a specific country over the years.
 
@@ -53,7 +53,7 @@ def generate_bar_chart(labels, values, Country):
                 x=0.038,
                 y=0.94,
                 transform=fig.transFigure)
-    plt.title(f"{Country}", size=17, weight='bold', fontfamily="serif", color='#000',
+    plt.title(f"{country}", size=17, weight='bold', fontfamily="serif", color='#000',
               horizontalalignment='left',
               x=0.038,
               y=0.96,
@@ -65,15 +65,17 @@ def generate_bar_chart(labels, values, Country):
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, height, f'{height/1e6:,.0f} M', ha='center', va='bottom', fontsize=8, fontweight='bold')        
     customize_bar_chart(ax)
-    plt.show()
+    plt.savefig('./img/bar_'+ country + '.png')
+    plt.close()
 
-def generate_pie_chart(labels, values, top_n=10):
+def generate_pie_chart(labels, values, continent, top_n=5):
     """
     Generate a pie chart showing the top N values from a list.
 
     Args:
         labels (list): A list of labels for the pie chart.
         values (list): A list of values corresponding to each label.
+        continent (str): The name of the continent.
         top_n (int): The number of top values to include in the chart.
 
     Returns:
@@ -84,5 +86,6 @@ def generate_pie_chart(labels, values, top_n=10):
     fig, ax = plt.subplots()
     ax.pie(top_values, labels=top_labels, autopct='%1.1f%%', colors=colors_palette, shadow=True, startangle=140)
     ax.axis('equal')
-    plt.title("Top 10 World Population Percentage", size=14, weight='bold')
-    plt.show()
+    plt.title(f"Top {top_n} Population Percentage for {continent}", size=14, weight='bold')
+    plt.savefig(f'./img/pie_{continent}.png')
+    plt.close()
